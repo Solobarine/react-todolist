@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import Nav from './components/Nav';
+import CreateTodos from './components/CreateTodos';
+import ShowTodos from './components/ShowTodos';
 
-function App() {
+const App = () => {
+  let todoList = null
+  const list = JSON.parse(localStorage.getItem('TodoList'));
+  console.log(list)
+  if (list === null) {
+    todoList = [];
+  } else {
+    todoList = list
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='app'>
+      <Nav />
+      <CreateTodos list={todoList} />
+      <ShowTodos list={todoList} />
     </div>
   );
 }
 
-export default App;
+export default App
