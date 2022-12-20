@@ -5,9 +5,6 @@ const Todo = (todoList) => {
     e.target.classList.add('hide');
   }
   const [edit, setEdit] = useState('')
-  const changeTask = () => {
-    
-  }
   return (
     <div>
       {
